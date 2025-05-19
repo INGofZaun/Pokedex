@@ -5,10 +5,11 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.example.project.model.PokemonDetail
 
 class PokemonViewModel : ViewModel() {
-    private val _pokemonList = MutableStateFlow<List<Pokemon>>(emptyList())
-    val pokemonList: StateFlow<List<Pokemon>> = _pokemonList
+    private val _pokemonList = MutableStateFlow<List<PokemonDetail>>(emptyList())
+    val pokemonList: StateFlow<List<PokemonDetail>> = _pokemonList
 
     init {
         fetchPokemon()
