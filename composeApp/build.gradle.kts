@@ -30,6 +30,7 @@ kotlin {
                 implementation(compose.components.resources)
                 implementation(compose.components.uiToolingPreview)
 
+                // Networking + JSON + Coroutines
                 implementation("io.ktor:ktor-client-core:2.3.7")
                 implementation("io.ktor:ktor-client-content-negotiation:2.3.7")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7")
@@ -47,8 +48,16 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(compose.preview)
-                implementation("io.ktor:ktor-client-okhttp:2.3.7")
+                implementation("androidx.compose.foundation:foundation:1.6.4")
+                implementation("androidx.compose.material3:material3:1.2.1")
+                implementation("androidx.compose.ui:ui:1.6.4")
+                implementation("androidx.compose.ui:ui-tooling-preview:1.6.4")
+
                 implementation("androidx.activity:activity-compose:1.8.0")
+                implementation("io.ktor:ktor-client-okhttp:2.3.7")
+
+                // Imagen en Compose (solo Android)
+                implementation("io.coil-kt:coil-compose:2.4.0")
             }
         }
 
@@ -89,6 +98,14 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
 }
 
